@@ -1,7 +1,6 @@
 import argparse
 
 from pathlib import Path
-from statistics import mode
 
 from features.AndroGuard import AndroGuardWrapper
 from features.LIEF import LIEFWrapper
