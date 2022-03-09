@@ -49,7 +49,8 @@ if __name__ == '__main__':
     res = AndroGuard.extendClassNameList(
         AndroGuard.classAnalysis(
             baseClassSmaliName
-        )
+        ),
+        raw=False
     )
 
     # Save data to the output file

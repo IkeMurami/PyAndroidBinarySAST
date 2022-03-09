@@ -68,12 +68,24 @@ class AndroGuardWrapper(AppLoader):
 
         return res
 
-    def extendClassNameList(self, class_analysis):
+    def extendClassNameList(self, class_analysis, raw=True):
         """
         Все то же, что и `extendClassList(self, class_analysis)`, но вытаскивает имена классов
+
+        raw=True  -> return as Lcom/example/app$test;
+        raw=False -> return as com.example.app$test
         """
 
-        return [klass.name for klass in self.extendClassList(class_analysis)]
+        # Lcom/example/app$test; -> com.example.app$test
+        converter = lambda s: s.replace('/', '.').replace(';', '')[1:]
+
+
+        classes = [klass.name for klass in self.extendClassList(class_analysis)]
+
+        if not raw:
+            classes = [converter(r) for r in classes]
+
+        return classes
 
     def test_jadx(self):
         """

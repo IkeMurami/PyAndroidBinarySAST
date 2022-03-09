@@ -8,6 +8,8 @@
 По факту, сейчас через AndroGuard возвращается список классов, расширяющих класс `Lcom/google/protobuf/GeneratedMessageLite;`.
 Это все классы, в которых определены типы данных для gRPC API.
 
+PS: work slowly (~4 min)
+
 # Pre-Install
 
 ```
